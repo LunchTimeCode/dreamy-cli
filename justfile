@@ -28,3 +28,6 @@ test:
 lint:
     cargo fmt --all -- --check
     cargo clippy
+
+fmt:
+    cargo fmt
