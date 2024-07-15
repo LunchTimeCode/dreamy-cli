@@ -1,5 +1,5 @@
 [package]
-name = "dy"
+name = "dreamy-cli"
 version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE"
@@ -7,6 +7,10 @@ repository = "https://github.com/LunchTimeCode/dreamy-cli"
 documentation = "https://github.com/LunchTimeCode/dreamy-cli"
 homepage = "https://github.com/LunchTimeCode/dreamy-cli"
 description = "A cli to work with dependencies"
+
+[[bin]]
+name = "dy"
+path = "src/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
