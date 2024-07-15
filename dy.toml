@@ -1,5 +1,5 @@
 report_title = "No unknown"
 forbid_unknown = true
 forbidden_licenses = []
-org = "optravis-llc"
-repo = "user-management-frontend"
+org = "LunchTimeCode"
+repo = "dreamy-cli"
