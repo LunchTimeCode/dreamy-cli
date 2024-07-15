@@ -4,28 +4,36 @@ use std::fs;
 use serde_derive::Deserialize;
 use serde_derive::Serialize;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub struct Config {
-    report_title: String,
-    allowed_licenses: Vec<String>,
-    forbidden_licenses: Vec<String>,
+    pub report_title: String,
+    pub allowed_licenses: Option<Vec<String>>,
+    pub forbid_unknown: bool,
+    pub forbidden_licenses: Vec<String>,
+    pub org: String,
+    pub repo: String,
 }
 
 impl Config {
     pub fn example() -> Self {
         Self {
             report_title: "very good title".to_string(),
-            allowed_licenses: vec![],
+            allowed_licenses: None,
             forbidden_licenses: vec![],
+            forbid_unknown: false,
+            org: "acme".to_string(),
+            repo: "some_repo".to_string(),
         }
     }
 
     #[allow(unused)]
     pub fn is_allowed_license(&self, license: String) -> bool {
-        self.allowed_licenses.contains(&license)
+        let Some(allowed) = self.allowed_licenses.clone() else {
+            return true;
+        };
+        allowed.contains(&license)
     }
 
-    #[allow(unused)]
     pub fn is_forbidden_license(&self, license: String) -> bool {
         self.forbidden_licenses.contains(&license)
     }

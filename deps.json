@@ -1,0 +1,51 @@
+[
+  {
+    "repo": "user-management-frontend",
+    "name": "com.github.Optravis-LLC/user-management-frontend",
+    "type": "com.github.Optravis-LLC/user-management-frontend",
+    "version": "",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "actions/add-to-project",
+    "type": "actions",
+    "version": "1.0.2",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "actions/checkout",
+    "type": "actions",
+    "version": "4.*.*",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "docker/login-action",
+    "type": "actions",
+    "version": "3.*.*",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "actions/setup-node",
+    "type": "actions",
+    "version": "4.*.*",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "taiki-e/install-action",
+    "type": "actions",
+    "version": "2.*.*",
+    "license": "not found"
+  },
+  {
+    "repo": "user-management-frontend",
+    "name": "oven-sh/setup-bun",
+    "type": "actions",
+    "version": "2.*.*",
+    "license": "not found"
+  }
+]

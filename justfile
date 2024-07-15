@@ -10,7 +10,7 @@ log := "warn"
     just --list --unsorted
 
 run *args:
-    cargo run -- {{args}}
+    cargo run -q -- {{args}}
 
 install:
     cargo install --path .

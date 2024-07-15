@@ -1,3 +1,5 @@
-report_title = "very good title"
-allowed_licenses = []
+report_title = "No unknown"
+forbid_unknown = true
 forbidden_licenses = []
+org = "optravis-llc"
+repo = "user-management-frontend"

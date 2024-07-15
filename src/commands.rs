@@ -8,13 +8,10 @@ pub async fn figure() -> anyhow::Result<String> {
     let result: anyhow::Result<String> = match cli.command {
         Some(Commands::Init {}) => init::example(),
         Some(Commands::Markdown) => Ok(clap_markdown::help_markdown::<Cli>()),
-        Some(Commands::CheckGh {
-            token,
-            org,
-            repo,
-            base,
-            head,
-        }) => gh::check_licenses_on(&token, org, repo, base, head).await,
+        Some(Commands::Check { token, org, repo }) => {
+            gh::check_licenses_on(&token, org, repo).await
+        }
+        Some(Commands::Deps { token, org, repo }) => gh::get_deps(&token, org, repo).await,
         None => Ok("try dy --help for information on how to use dreamy".to_string()),
     };
 
@@ -38,7 +35,7 @@ enum Commands {
     Init {},
 
     // [PREVIEW] checks licenses on github
-    CheckGh {
+    Check {
         #[arg(short, long, env = "GITHUB_TOKEN")]
         token: String,
 
@@ -47,11 +44,15 @@ enum Commands {
 
         #[arg(short, long, env = "DY_REPO")]
         repo: Option<String>,
+    },
+    Deps {
+        #[arg(short, long, env = "GITHUB_TOKEN")]
+        token: String,
 
-        #[arg(short, long, env = "DY_BASE")]
-        base: Option<String>,
+        #[arg(short, long, env = "DY_ORG")]
+        org: Option<String>,
 
-        #[arg(short, long, env = "DY_HEAD")]
-        head: Option<String>,
+        #[arg(short, long, env = "DY_REPO")]
+        repo: Option<String>,
     },
 }
