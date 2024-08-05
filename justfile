@@ -23,6 +23,10 @@ install:
 create_docs: install
     dy markdown > cli_help.md
 
+dist:
+    cargo dist init
+    cargo dist generate
+
 
 # Run the tests
 test:
