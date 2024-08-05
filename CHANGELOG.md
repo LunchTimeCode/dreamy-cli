@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.12](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.11...v1.0.12) (2024-08-05)
+
+
+### Bug Fixes
+
+* prerelease.yaml ([4fb37ea](https://github.com/LunchTimeCode/dreamy-cli/commit/4fb37eae54e3660af96a12ae8b6c7be2ea16d968))
+
 ## [1.0.11](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.10...v1.0.11) (2024-08-05)
 
 
