@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.10](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.9...v1.0.10) (2024-08-05)
+
+
+### Bug Fixes
+
+* no homebrew ([af3a335](https://github.com/LunchTimeCode/dreamy-cli/commit/af3a3351b01dd361853bd5bc37df2d0f884c30e7))
+
 ## [1.0.9](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.8...v1.0.9) (2024-08-05)
 
 
