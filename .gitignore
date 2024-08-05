@@ -1,3 +1,5 @@
 /target
 deps.json
 *.jar
+/.idea/modules.xml
+/.idea
