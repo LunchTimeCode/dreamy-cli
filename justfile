@@ -20,6 +20,10 @@ install:
     echo ------------ verify done! ------------
 
 
+create_docs: install
+    dy markdown > docs/doc.md
+
+
 # Run the tests
 test:
     cargo test
