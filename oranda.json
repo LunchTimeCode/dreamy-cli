@@ -1,11 +1,14 @@
 {
   "build": {
-    "path_prefix": "dreamy-cli",
-    "additional_pages": {
-      "CLI": "./cli_help.md"
-    }
+    "path_prefix": "dreamy-cli"
   },
   "styles": {
-    "theme": "hacker"
+    "theme": "hacker",
+    "favicon": "./static/favicon.ico"
+  },
+  "components": {
+    "mdbook": {
+      "path": "./docs"
+    }
   }
 }
