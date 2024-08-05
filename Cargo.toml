@@ -60,6 +60,8 @@ install-path = "CARGO_HOME"
 # Whether to install an updater program
 install-updater = true
 
+create-release = false
+
 [package.metadata.wix]
 upgrade-guid = "25688B1E-471D-4B40-B861-729B52B5E8C5"
 path-guid = "C351A336-4918-4E77-8F7C-04CA2C13DFB7"
