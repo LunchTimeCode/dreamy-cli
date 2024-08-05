@@ -1,11 +1,11 @@
 {
   "build": {
-    "path_prefix": "dreamy-cli"
+    "path_prefix": "dreamy-cli",
+    "additional_pages": {
+      "cli help": "./docs/cli_help.md"
+    }
   },
   "styles": {
     "theme": "hacker"
-  },
-  "additional_pages": {
-    "cli help": "./docs/cli_help.md"
   }
 }
