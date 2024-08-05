@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.17](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.16...v1.0.17) (2024-08-05)
+
+
+### Bug Fixes
+
+* publish to npm ([08fc75a](https://github.com/LunchTimeCode/dreamy-cli/commit/08fc75a8f709c79d60221b9ebb48cdab598bb937))
+
 ## [1.0.16](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.15...v1.0.16) (2024-08-05)
 
 
