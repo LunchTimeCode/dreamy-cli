@@ -48,7 +48,7 @@ windows-archive = ".tar.gz"
 # The archive format to use for non-windows builds (defaults .tar.xz)
 unix-archive = ".tar.gz"
 # A namespace to use when publishing this package to the npm registry
-npm-scope = "@axodotdev"
+npm-scope = "@lunchtimecode"
 # A GitHub repo to push Homebrew formulas to
 tap = "axodotdev/homebrew-tap"
 # Publish jobs to run in CI
