@@ -1,5 +1,8 @@
 {
   "build": {
     "path_prefix": "dreamy-cli"
+  },
+  "styles": {
+    "theme": "hacker"
   }
 }
