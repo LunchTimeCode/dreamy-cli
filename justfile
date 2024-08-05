@@ -21,7 +21,7 @@ install:
 
 
 create_docs: install
-    dy markdown > docs/doc.md
+    dy markdown > docs/cli_help.md
 
 
 # Run the tests
