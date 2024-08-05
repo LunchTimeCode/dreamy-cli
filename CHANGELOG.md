@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.7...v1.0.8) (2024-08-05)
+
+
+### Bug Fixes
+
+* set release type to rust ([e871bc6](https://github.com/LunchTimeCode/dreamy-cli/commit/e871bc659921e01046172b8be57a2c29724414f4))
+
 ## [1.0.7](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.6...v1.0.7) (2024-08-05)
 
 
