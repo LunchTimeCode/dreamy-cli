@@ -35,9 +35,7 @@ lto = "thin"
 
 # Config for 'cargo dist'
 [workspace.metadata.dist]
-# The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
-cargo-dist-version = "0.0.7"
-# CI backends to support
+cargo-dist-version = "0.19.1"
 ci = "github"
 # The installers to generate for each app
 installers = ["shell", "powershell", "npm", "homebrew", "msi"]
@@ -50,7 +48,7 @@ unix-archive = ".tar.gz"
 # A namespace to use when publishing this package to the npm registry
 npm-scope = "@lunchtimecode"
 # A GitHub repo to push Homebrew formulas to
-tap = "axodotdev/homebrew-tap"
+tap = "lunchtimecode/homebrew-tap"
 # Publish jobs to run in CI
 publish-jobs = ["homebrew"]
 # Publish jobs to run in CI

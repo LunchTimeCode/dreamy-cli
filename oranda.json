@@ -2,7 +2,7 @@
   "build": {
     "path_prefix": "dreamy-cli",
     "additional_pages": {
-      "CLI": "./docs/cli_help.md"
+      "CLI": "./cli_help.md"
     }
   },
   "styles": {
