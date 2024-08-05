@@ -4,4 +4,4 @@
 
 Welcome do dreamy.
 
-- [CLI doc](.)
+- [CLI doc]("./docs/cli_help.md")
