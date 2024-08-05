@@ -15,6 +15,11 @@ jobs:
   # Run 'cargo dist plan' (or host) to determine what tasks we need to do
   plan:
     runs-on: "ubuntu-20.04"
+    outputs:
+      val: ${{ steps.plan.outputs.manifest }}
+      tag: ${{ !github.event.pull_request && github.ref_name || '' }}
+      tag-flag: ${{ !github.event.pull_request && format('--tag={0}', github.ref_name) || '' }}
+      publishing: ${{ !github.event.pull_request }}
     env:
       GH_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
     steps:
@@ -31,14 +36,9 @@ jobs:
         with:
           name: cargo-dist-cache
           path: ~/.cargo/bin/cargo-dist
-      # sure would be cool if github gave us proper conditionals...
-      # so here's a doubly-nested ternary-via-truthiness to try to provide the best possible
-      # functionality based on whether this is a pull_request, and whether it's from a fork.
-      # (PRs run on the *source* but secrets are usually on the *target* -- that's *good*
-      # but also really annoying to build CI around when it needs secrets to work right.)
       - id: plan
         run: |
-          cargo dist --target=x86_64-unknown-linux-gnu ${{ (!github.event.pull_request && format('host --steps=create --tag={0}', github.ref_name)) || 'plan' }} --output-format=json > plan-dist-manifest.json
+          cargo dist ${{ (!github.event.pull_request && format('host --steps=create --tag={0}', github.ref_name)) || 'plan' }} --output-format=json > plan-dist-manifest.json
           echo "cargo dist ran successfully"
           cat plan-dist-manifest.json
           echo "manifest=$(jq -c "." plan-dist-manifest.json)" >> "$GITHUB_OUTPUT"
@@ -195,7 +195,7 @@ jobs:
       - id: host
         shell: bash
         run: |
-          cargo dist host ${{ needs.plan.outputs.tag-flag }} --target=x86_64-unknown-linux-gnu --steps=upload --steps=release --output-format=json > dist-manifest.json
+          cargo dist host ${{ needs.plan.outputs.tag-flag }} --steps=upload --steps=release --output-format=json > dist-manifest.json
           echo "artifacts uploaded and released successfully"
           cat dist-manifest.json
           echo "manifest=$(jq -c "." dist-manifest.json)" >> "$GITHUB_OUTPUT"
