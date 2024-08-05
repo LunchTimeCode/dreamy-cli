@@ -10,6 +10,13 @@ permissions:
 # All of these work independently and can be removed / commented out
 # if you don't want oranda/mdbook running in that situation
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - docs/*
+      - oranda.json
   workflow_run:
     workflows: [ "Release" ]
     types:

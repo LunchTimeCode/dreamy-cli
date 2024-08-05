@@ -2,6 +2,5 @@
 # dreamy-cli
 </div>
 
-Welcome do dreamy.
+Welcome to dreamy.
 
-- [CLI doc]("./docs/cli_help.md")
