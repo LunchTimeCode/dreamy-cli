@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.2...v1.0.3) (2024-08-05)
+
+
+### Bug Fixes
+
+* adjust release ([3f4f33a](https://github.com/LunchTimeCode/dreamy-cli/commit/3f4f33a16c316f6869d26d81f689fae0fd4d36ac))
+* outputs ([bb09f07](https://github.com/LunchTimeCode/dreamy-cli/commit/bb09f07fd342c7ac6d1b706af3363ba04982e198))
+
 ## [1.0.2](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.1...v1.0.2) (2024-08-05)
 
 
