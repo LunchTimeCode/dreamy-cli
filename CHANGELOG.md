@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.7](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.6...v1.0.7) (2024-08-05)
+
+
+### Bug Fixes
+
+* add repo prefix ([56051ec](https://github.com/LunchTimeCode/dreamy-cli/commit/56051ecef41de51f8b6ced81ce5ae9d2d79b24ac))
+* do not check links ([f387d5a](https://github.com/LunchTimeCode/dreamy-cli/commit/f387d5aa385538381251abe1fc208dafd065e030))
+* release ([5458cd4](https://github.com/LunchTimeCode/dreamy-cli/commit/5458cd46ddc83ff6b7412e145c603238714e337e))
+
 ## [1.0.6](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.5...v1.0.6) (2024-08-05)
 
 
