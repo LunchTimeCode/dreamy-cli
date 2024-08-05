@@ -1,5 +1,6 @@
 [package]
 name = "dreamy-cli"
+authors = ["Silen Celeste Locatelli"]
 version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE"
@@ -32,16 +33,16 @@ colored = "2"
 inherits = "release"
 lto = "thin"
 
+# Config for 'cargo dist'
 [workspace.metadata.dist]
 # The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
 cargo-dist-version = "0.19.1"
-# The installers to generate for each app
 # CI backends to support
-ci = ["github"]
+ci = "github"
 # The installers to generate for each app
 installers = ["shell", "powershell", "npm", "homebrew", "msi"]
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["x86_64-unknown-linux-gnu", "aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-pc-windows-msvc"]
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-unknown-linux-musl", "x86_64-pc-windows-msvc"]
 # The archive format to use for windows builds (defaults .zip)
 windows-archive = ".tar.gz"
 # The archive format to use for non-windows builds (defaults .tar.xz)
@@ -54,7 +55,13 @@ tap = "axodotdev/homebrew-tap"
 publish-jobs = ["homebrew"]
 # Publish jobs to run in CI
 pr-run-mode = "plan"
+# Path that installers should place binaries in
+install-path = "CARGO_HOME"
+# Whether to install an updater program
+install-updater = true
 
 [package.metadata.wix]
 upgrade-guid = "25688B1E-471D-4B40-B861-729B52B5E8C5"
 path-guid = "C351A336-4918-4E77-8F7C-04CA2C13DFB7"
+license = false
+eula = false
