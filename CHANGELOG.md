@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.16](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.15...v1.0.16) (2024-08-05)
+
+
+### Bug Fixes
+
+* md book and favicon ([7d6f4e8](https://github.com/LunchTimeCode/dreamy-cli/commit/7d6f4e8bf063b2e59253a2aef9bd5d11bf8c08df))
+
 ## [1.0.15](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.14...v1.0.15) (2024-08-05)
 
 
