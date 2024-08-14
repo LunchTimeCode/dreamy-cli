@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.18...v1.1.0) (2024-08-14)
+
+
+### Features
+
+* global org deps ([818b33f](https://github.com/LunchTimeCode/dreamy-cli/commit/818b33f93e1847f6066b1867b827b6da84804294))
+
+
+### Bug Fixes
+
+* do not require dy.toml ([7e591ea](https://github.com/LunchTimeCode/dreamy-cli/commit/7e591ea340082182611a238cd96f069f5faf4b8d))
+
 ## [1.0.18](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.17...v1.0.18) (2024-08-05)
 
 
