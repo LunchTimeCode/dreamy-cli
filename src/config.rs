@@ -66,6 +66,12 @@ impl Config {
         let raw = fs::read_to_string("dy.toml").expect("no file found called dy.toml");
         toml::from_str(&raw).expect("could not read toml file")
     }
+
+    pub fn try_from_file() -> anyhow::Result<Self> {
+        let raw = fs::read_to_string("dy.toml")?;
+        let file: Config = toml::from_str(&raw)?;
+        Ok(file)
+    }
 }
 
 impl fmt::Display for Config {

@@ -85,12 +85,16 @@ async fn global_deps(
     org: Option<String>,
     repos_path: Option<String>,
 ) -> anyhow::Result<remote::Source> {
-    let config = config::Config::from_file();
+    let config = config::Config::try_from_file();
 
     let gh_cl = Github::new();
 
-    let Some(org) = org.or(Some(config.clone().org)) else {
-        return Err(anyhow!("no org"));
+    let org = match org {
+        Some(org) => org,
+        None => match config {
+            Ok(c) => c.org,
+            Err(_) => return Err(anyhow!("no org")),
+        },
     };
 
     let repos = config::repos_from_file(repos_path);
