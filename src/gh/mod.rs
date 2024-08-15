@@ -2,6 +2,7 @@ use anyhow::anyhow;
 use remote::{GitHubDep, Github};
 
 use crate::config;
+use crate::html;
 
 mod remote;
 
@@ -106,7 +107,7 @@ async fn global_deps(
                 graph.push(single)
             }
         } else {
-            println!("Could not find sbom of repo {}, you may need to activate depenency graph in this repo", repo)
+            println!("Could not find sbom of repo {}, you may need to activate dependency graph in this repo", repo)
         }
     }
     let source: remote::Source = remote::Source(graph);
@@ -117,10 +118,17 @@ pub async fn get_deps_global(
     token: &str,
     org: Option<String>,
     repos_path: Option<String>,
+    html: bool,
 ) -> anyhow::Result<String> {
     let source = global_deps(token, org, repos_path).await?;
 
     let pretty = serde_json::to_string_pretty(&source.0)?;
 
-    Ok(pretty)
+    let res = if html {
+        html::render_html(pretty)
+    } else {
+        pretty
+    };
+
+    Ok(res)
 }

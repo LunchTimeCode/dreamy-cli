@@ -1,6 +1,7 @@
 mod commands;
 mod config;
 mod gh;
+mod html;
 mod init;
 
 use colored::Colorize;

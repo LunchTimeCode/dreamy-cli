@@ -10,7 +10,8 @@ pub async fn figure() -> anyhow::Result<String> {
             token,
             org,
             repos_path,
-        }) => gh::get_deps_global(&token, org, repos_path).await,
+            ashtml,
+        }) => gh::get_deps_global(&token, org, repos_path, ashtml).await,
         Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
         Some(Commands::Markdown) => Ok(clap_markdown::help_markdown::<Cli>()),
@@ -75,5 +76,9 @@ enum Commands {
 
         #[arg(short, long, env = "DY_REPOS_PATH")]
         repos_path: Option<String>,
+
+        /// [PREVIEW] render html
+        #[arg(short, long, env = "DY_REPOS_PATH", default_value_t = false)]
+        ashtml: bool,
     },
 }
