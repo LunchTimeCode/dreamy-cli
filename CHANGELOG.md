@@ -1,5 +1,108 @@
 # Changelog
 
+## [1.1.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.18...v1.1.0) (2024-08-14)
+
+
+### Features
+
+* global org deps ([818b33f](https://github.com/LunchTimeCode/dreamy-cli/commit/818b33f93e1847f6066b1867b827b6da84804294))
+
+
+### Bug Fixes
+
+* do not require dy.toml ([7e591ea](https://github.com/LunchTimeCode/dreamy-cli/commit/7e591ea340082182611a238cd96f069f5faf4b8d))
+
+## [1.0.18](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.17...v1.0.18) (2024-08-05)
+
+
+### Bug Fixes
+
+* create new doc page if docs change ([6d1fbc3](https://github.com/LunchTimeCode/dreamy-cli/commit/6d1fbc306f0a67f8fd818381ab35941671014b99))
+
+## [1.0.17](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.16...v1.0.17) (2024-08-05)
+
+
+### Bug Fixes
+
+* publish to npm ([08fc75a](https://github.com/LunchTimeCode/dreamy-cli/commit/08fc75a8f709c79d60221b9ebb48cdab598bb937))
+
+## [1.0.16](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.15...v1.0.16) (2024-08-05)
+
+
+### Bug Fixes
+
+* md book and favicon ([7d6f4e8](https://github.com/LunchTimeCode/dreamy-cli/commit/7d6f4e8bf063b2e59253a2aef9bd5d11bf8c08df))
+
+## [1.0.15](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.14...v1.0.15) (2024-08-05)
+
+
+### Bug Fixes
+
+* remove home brew ([b93bb35](https://github.com/LunchTimeCode/dreamy-cli/commit/b93bb35aaa1b2ad3f86cd4de316e62cb571dd66c))
+
+## [1.0.14](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.13...v1.0.14) (2024-08-05)
+
+
+### Bug Fixes
+
+* dist ([500c201](https://github.com/LunchTimeCode/dreamy-cli/commit/500c2017f698300b239f236797fa766e0cea4284))
+
+## [1.0.13](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.12...v1.0.13) (2024-08-05)
+
+
+### Bug Fixes
+
+* do not try to create a release ([7ed0a73](https://github.com/LunchTimeCode/dreamy-cli/commit/7ed0a73ca59779f27a4fcda257283e917f47fd1c))
+
+## [1.0.12](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.11...v1.0.12) (2024-08-05)
+
+
+### Bug Fixes
+
+* prerelease.yaml ([4fb37ea](https://github.com/LunchTimeCode/dreamy-cli/commit/4fb37eae54e3660af96a12ae8b6c7be2ea16d968))
+
+## [1.0.11](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.10...v1.0.11) (2024-08-05)
+
+
+### Bug Fixes
+
+* create docs ([c33120b](https://github.com/LunchTimeCode/dreamy-cli/commit/c33120bcd4b6c17f928f395271022fe67526f774))
+* dist ([ad618fb](https://github.com/LunchTimeCode/dreamy-cli/commit/ad618fb3414bccf55f9a60a651d8391c8928bfcb))
+
+## [1.0.10](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.9...v1.0.10) (2024-08-05)
+
+
+### Bug Fixes
+
+* no homebrew ([af3a335](https://github.com/LunchTimeCode/dreamy-cli/commit/af3a3351b01dd361853bd5bc37df2d0f884c30e7))
+
+## [1.0.9](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.8...v1.0.9) (2024-08-05)
+
+
+### Bug Fixes
+
+* cli help ([577cbe2](https://github.com/LunchTimeCode/dreamy-cli/commit/577cbe2234a262866e2863cc81a50faac351f238))
+* no homebrew ([8c5039c](https://github.com/LunchTimeCode/dreamy-cli/commit/8c5039c83f55c0a263588988a0bf9f1cccd9efe8))
+* older dist ([ecfbbe3](https://github.com/LunchTimeCode/dreamy-cli/commit/ecfbbe3ca742db9bdca6696777e40d2e41b6dc5a))
+* web ([64c9418](https://github.com/LunchTimeCode/dreamy-cli/commit/64c9418fe71aedec82bec41c3929e1d4b55d5ca8))
+* web ([54eb4e4](https://github.com/LunchTimeCode/dreamy-cli/commit/54eb4e4c3a62fec8ec85fcafcc001337363b5a56))
+
+## [1.0.8](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.7...v1.0.8) (2024-08-05)
+
+
+### Bug Fixes
+
+* set release type to rust ([e871bc6](https://github.com/LunchTimeCode/dreamy-cli/commit/e871bc659921e01046172b8be57a2c29724414f4))
+
+## [1.0.7](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.6...v1.0.7) (2024-08-05)
+
+
+### Bug Fixes
+
+* add repo prefix ([56051ec](https://github.com/LunchTimeCode/dreamy-cli/commit/56051ecef41de51f8b6ced81ce5ae9d2d79b24ac))
+* do not check links ([f387d5a](https://github.com/LunchTimeCode/dreamy-cli/commit/f387d5aa385538381251abe1fc208dafd065e030))
+* release ([5458cd4](https://github.com/LunchTimeCode/dreamy-cli/commit/5458cd46ddc83ff6b7412e145c603238714e337e))
+
 ## [1.0.6](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.5...v1.0.6) (2024-08-05)
 
 

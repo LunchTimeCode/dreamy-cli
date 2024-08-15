@@ -6,6 +6,12 @@ pub async fn figure() -> anyhow::Result<String> {
     let cli = Cli::parse();
 
     let result: anyhow::Result<String> = match cli.command {
+        Some(Commands::GlobalDeps {
+            token,
+            org,
+            repos_path,
+        }) => gh::get_deps_global(&token, org, repos_path).await,
+        Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
         Some(Commands::Markdown) => Ok(clap_markdown::help_markdown::<Cli>()),
         Some(Commands::Check { token, org, repo }) => {
@@ -33,8 +39,10 @@ enum Commands {
 
     /// [STABLE] creates an example config
     Init {},
+    /// [STABLE] creates an global example config
+    InitGlobal {},
 
-    // [PREVIEW] checks licenses on github
+    /// [PREVIEW] checks licenses on github
     Check {
         #[arg(short, long, env = "GITHUB_TOKEN")]
         token: String,
@@ -45,6 +53,7 @@ enum Commands {
         #[arg(short, long, env = "DY_REPO")]
         repo: Option<String>,
     },
+    /// [PREVIEW] get all deps of an repo
     Deps {
         #[arg(short, long, env = "GITHUB_TOKEN")]
         token: String,
@@ -54,5 +63,17 @@ enum Commands {
 
         #[arg(short, long, env = "DY_REPO")]
         repo: Option<String>,
+    },
+
+    /// [PREVIEW] get all deps of an org
+    GlobalDeps {
+        #[arg(short, long, env = "GITHUB_TOKEN")]
+        token: String,
+
+        #[arg(short, long, env = "DY_ORG")]
+        org: Option<String>,
+
+        #[arg(short, long, env = "DY_REPOS_PATH")]
+        repos_path: Option<String>,
     },
 }

@@ -21,7 +21,11 @@ install:
 
 
 create_docs: install
-    dy markdown > docs/doc.md
+    just run markdown > ./docs/src/chapter_1.md
+
+dist:
+    cargo dist init
+    cargo dist generate
 
 
 # Run the tests

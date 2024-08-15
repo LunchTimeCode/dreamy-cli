@@ -1,0 +1,14 @@
+{
+  "build": {
+    "path_prefix": "dreamy-cli"
+  },
+  "styles": {
+    "theme": "hacker",
+    "favicon": "./static/favicon.ico"
+  },
+  "components": {
+    "mdbook": {
+      "path": "./docs"
+    }
+  }
+}

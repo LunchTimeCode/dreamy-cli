@@ -7,8 +7,10 @@ This document contains the help content for the `dy` command-line program.
 * [`dy`↴](#dy)
 * [`dy markdown`↴](#dy-markdown)
 * [`dy init`↴](#dy-init)
+* [`dy init-global`↴](#dy-init-global)
 * [`dy check`↴](#dy-check)
 * [`dy deps`↴](#dy-deps)
+* [`dy global-deps`↴](#dy-global-deps)
 
 ## `dy`
 
@@ -20,8 +22,10 @@ dreamy cli
 
 * `markdown` — [STABLE] print markdown doc of qwit to std out
 * `init` — [STABLE] creates an example config
-* `check` — 
-* `deps` — 
+* `init-global` — [STABLE] creates an global example config
+* `check` — [PREVIEW] checks licenses on github
+* `deps` — [PREVIEW] get all deps of an repo
+* `global-deps` — [PREVIEW] get all deps of an org
 
 
 
@@ -41,7 +45,17 @@ dreamy cli
 
 
 
+## `dy init-global`
+
+[STABLE] creates an global example config
+
+**Usage:** `dy init-global`
+
+
+
 ## `dy check`
+
+[PREVIEW] checks licenses on github
 
 **Usage:** `dy check [OPTIONS] --token <TOKEN>`
 
@@ -55,6 +69,8 @@ dreamy cli
 
 ## `dy deps`
 
+[PREVIEW] get all deps of an repo
+
 **Usage:** `dy deps [OPTIONS] --token <TOKEN>`
 
 ###### **Options:**
@@ -62,6 +78,20 @@ dreamy cli
 * `-t`, `--token <TOKEN>`
 * `-o`, `--org <ORG>`
 * `-r`, `--repo <REPO>`
+
+
+
+## `dy global-deps`
+
+[PREVIEW] get all deps of an org
+
+**Usage:** `dy global-deps [OPTIONS] --token <TOKEN>`
+
+###### **Options:**
+
+* `-t`, `--token <TOKEN>`
+* `-o`, `--org <ORG>`
+* `-r`, `--repos-path <REPOS_PATH>`
 
 
 
