@@ -1,8 +1,10 @@
+use crate::config::GH_COMMAND;
+
 use super::gh;
 use super::init;
 use clap::{Parser, Subcommand};
 
-pub async fn figure() -> anyhow::Result<String> {
+pub async fn figure() -> anyhow::Result<(String, bool)> {
     let cli = Cli::parse();
 
     let result: anyhow::Result<String> = match cli.command {
@@ -22,6 +24,7 @@ pub async fn figure() -> anyhow::Result<String> {
             )
             .await
         }
+        Some(Commands::GhCommand {}) => Ok(GH_COMMAND.to_string()),
         Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
         Some(Commands::Markdown) => Ok(clap_markdown::help_markdown::<Cli>()),
@@ -32,18 +35,25 @@ pub async fn figure() -> anyhow::Result<String> {
         None => Ok("try dy --help for information on how to use dreamy".to_string()),
     };
 
-    result
+    match result {
+        Ok(o) => Ok((o, cli.raw)),
+        Err(err) => Err(err),
+    }
 }
 
 /// dreamy cli
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about, name = "dy")]
 struct Cli {
+    #[arg(short, long, default_value_t = false)]
+    raw: bool,
+
     #[command(subcommand)]
     command: Option<Commands>,
 }
 
 #[derive(Subcommand, Debug)]
+#[command(rename_all = "snake_case")]
 enum Commands {
     /// [STABLE] print markdown doc of qwit to std out
     Markdown,
@@ -75,6 +85,9 @@ enum Commands {
         #[arg(short, long, env = "DY_REPO")]
         repo: Option<String>,
     },
+
+    /// [STABLE] gh cli command to get all repos
+    GhCommand {},
 
     /// [STABLE] get all deps of an github organisation
     GlobalDeps {

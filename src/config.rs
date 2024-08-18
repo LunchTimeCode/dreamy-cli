@@ -1,6 +1,7 @@
 use core::fmt;
 use std::fs;
 
+use anyhow::anyhow;
 use serde_derive::Deserialize;
 use serde_derive::Serialize;
 
@@ -80,10 +81,18 @@ impl fmt::Display for Config {
     }
 }
 
-pub fn repos_from_file(path: Option<String>) -> Vec<String> {
+pub fn repos_from_file(path: Option<String>) -> anyhow::Result<Vec<String>> {
     let path: String = path.unwrap_or_else(|| "repos.json".to_string());
 
-    let raw = fs::read_to_string(path).expect("no repo json file found");
+    let Ok(raw) = fs::read_to_string(path) else {
+        return Err(anyhow!(
+            "no repos.json file was found, you can create on by running: {}",
+            GH_COMMAND
+        ));
+    };
 
-    serde_json::from_str(&raw).expect("could not read repo json file")
+    Ok(serde_json::from_str(&raw).expect("could not read repo json file"))
 }
+
+pub const GH_COMMAND: &str =
+    "gh repo list optravis-llc --limit 1000 --json name | jq '[.[].name]' > repos.json";

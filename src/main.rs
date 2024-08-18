@@ -15,7 +15,10 @@ async fn main() {
 
     match res {
         Ok(message) => {
-            let message = format!("{}", message.to_string().green());
+            let raw = message.1;
+            let out = message.0;
+            let message = if raw { out } else { format!("{}", out.green()) };
+
             println!("{message}")
         }
 

@@ -99,7 +99,7 @@ async fn global_deps(
         },
     };
 
-    let repos = config::repos_from_file(repos_path);
+    let repos = config::repos_from_file(repos_path)?;
 
     let mut graph: Vec<GitHubDep> = vec![];
     for repo in repos {
