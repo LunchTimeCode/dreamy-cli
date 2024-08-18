@@ -7,25 +7,33 @@ This document contains the help content for the `dy` command-line program.
 * [`dy`↴](#dy)
 * [`dy markdown`↴](#dy-markdown)
 * [`dy init`↴](#dy-init)
-* [`dy init-global`↴](#dy-init-global)
+* [`dy init_global`↴](#dy-init_global)
 * [`dy check`↴](#dy-check)
 * [`dy deps`↴](#dy-deps)
-* [`dy global-deps`↴](#dy-global-deps)
+* [`dy gh_command`↴](#dy-gh_command)
+* [`dy global_deps`↴](#dy-global_deps)
 
 ## `dy`
 
 dreamy cli
 
-**Usage:** `dy [COMMAND]`
+**Usage:** `dy [OPTIONS] [COMMAND]`
 
 ###### **Subcommands:**
 
 * `markdown` — [STABLE] print markdown doc of qwit to std out
 * `init` — [STABLE] creates an example config
-* `init-global` — [STABLE] creates an global example config
+* `init_global` — [STABLE] creates an global example config
 * `check` — [PREVIEW] checks licenses on github
 * `deps` — [PREVIEW] get all deps of an repo
-* `global-deps` — [PREVIEW] get all deps of an org
+* `gh_command` — [STABLE] gh cli command to get all repos
+* `global_deps` — [STABLE] get all deps of an github organisation
+
+###### **Options:**
+
+* `-r`, `--raw`
+
+  Default value: `false`
 
 
 
@@ -45,11 +53,11 @@ dreamy cli
 
 
 
-## `dy init-global`
+## `dy init_global`
 
 [STABLE] creates an global example config
 
-**Usage:** `dy init-global`
+**Usage:** `dy init_global`
 
 
 
@@ -81,17 +89,32 @@ dreamy cli
 
 
 
-## `dy global-deps`
+## `dy gh_command`
 
-[PREVIEW] get all deps of an org
+[STABLE] gh cli command to get all repos
 
-**Usage:** `dy global-deps [OPTIONS] --token <TOKEN>`
+**Usage:** `dy gh_command`
+
+
+
+## `dy global_deps`
+
+[STABLE] get all deps of an github organisation
+
+**Usage:** `dy global_deps [OPTIONS] --token <TOKEN>`
 
 ###### **Options:**
 
 * `-t`, `--token <TOKEN>`
-* `-o`, `--org <ORG>`
-* `-r`, `--repos-path <REPOS_PATH>`
+* `-o`, `--org <ORG>` — [STABLE] github organisation
+* `-r`, `--repos_path <REPOS_PATH>` — [STABLE] path to a json file with all repositories to scrape [default: repos.json]
+* `-a`, `--ashtml` — [PREVIEW] render as html
+
+  Default value: `false`
+* `-H`, `--html_type <HTML_TYPE>` — [PREVIEW] render licenses or dependencies [default: dependencies]
+
+  Possible values: `licenses`, `dependencies`
+
 
 
 
