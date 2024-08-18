@@ -91,7 +91,8 @@ pub struct GithubRepo {
 pub struct GitHubDep {
     pub repo: String,
     pub name: String,
-    pub _type: String,
+    #[serde(rename = "type")]
+    pub tipe: String,
     pub version: String,
     pub license: String,
 }
@@ -125,7 +126,7 @@ impl RepoBom {
 
             let dep = GitHubDep {
                 repo: repo.to_string(),
-                _type: _type.to_string(),
+                tipe: _type.to_string(),
                 name: dep_name.to_string(),
                 version: package.version_info.to_string(),
                 license,

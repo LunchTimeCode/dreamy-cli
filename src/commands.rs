@@ -11,7 +11,17 @@ pub async fn figure() -> anyhow::Result<String> {
             org,
             repos_path,
             ashtml,
-        }) => gh::get_deps_global(&token, org, repos_path, ashtml).await,
+            html_type,
+        }) => {
+            gh::get_deps_global(
+                &token,
+                org,
+                repos_path,
+                ashtml,
+                html_type.unwrap_or(HtmlType::Dependencies),
+            )
+            .await
+        }
         Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
         Some(Commands::Markdown) => Ok(clap_markdown::help_markdown::<Cli>()),
@@ -66,19 +76,31 @@ enum Commands {
         repo: Option<String>,
     },
 
-    /// [PREVIEW] get all deps of an org
+    /// [STABLE] get all deps of an github organisation
     GlobalDeps {
         #[arg(short, long, env = "GITHUB_TOKEN")]
         token: String,
 
+        /// [STABLE] github organisation
         #[arg(short, long, env = "DY_ORG")]
         org: Option<String>,
 
+        /// [STABLE] path to a json file with all repositories to scrape [default: repos.json]
         #[arg(short, long, env = "DY_REPOS_PATH")]
         repos_path: Option<String>,
 
-        /// [PREVIEW] render html
-        #[arg(short, long, env = "DY_REPOS_PATH", default_value_t = false)]
+        /// [PREVIEW] render as html
+        #[arg(short, long, default_value_t = false)]
         ashtml: bool,
+
+        /// [PREVIEW] render licenses or dependencies [default: dependencies]
+        #[arg(short = 'H', long)]
+        html_type: Option<HtmlType>,
     },
+}
+
+#[derive(clap::ValueEnum, Clone, Debug)]
+pub enum HtmlType {
+    Licenses,
+    Dependencies,
 }

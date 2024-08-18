@@ -1,10 +1,11 @@
 use anyhow::anyhow;
 use remote::{GitHubDep, Github};
 
+use crate::commands::HtmlType;
 use crate::config;
 use crate::html;
 
-mod remote;
+pub mod remote;
 
 pub async fn check_licenses_on(
     token: &str,
@@ -119,13 +120,14 @@ pub async fn get_deps_global(
     org: Option<String>,
     repos_path: Option<String>,
     html: bool,
+    html_type: HtmlType,
 ) -> anyhow::Result<String> {
     let source = global_deps(token, org, repos_path).await?;
 
     let pretty = serde_json::to_string_pretty(&source.0)?;
 
     let res = if html {
-        html::render_html(pretty)
+        html::render_html(source.0, html_type)
     } else {
         pretty
     };
