@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.1.0...v1.2.0) (2024-09-03)
+
+
+### Features
+
+* get global deps ([b598ec6](https://github.com/LunchTimeCode/dreamy-cli/commit/b598ec67267be86dcc92e0e82633c479255c8a65))
+* global raw argument ([643a8b8](https://github.com/LunchTimeCode/dreamy-cli/commit/643a8b802e3715af741426ef07d86d8ba88fe636))
+
+
+### Bug Fixes
+
+* vendor openssl ([f3c3879](https://github.com/LunchTimeCode/dreamy-cli/commit/f3c3879a6457d4a7f15af3731a15e28f429954b2))
+
 ## [1.1.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.0.18...v1.1.0) (2024-08-14)
 
 
