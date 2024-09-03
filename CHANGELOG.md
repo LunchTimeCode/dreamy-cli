@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.2.0...v1.2.1) (2024-09-03)
+
+
+### Bug Fixes
+
+* output ([401860c](https://github.com/LunchTimeCode/dreamy-cli/commit/401860c793c22e4ad16c1ec704487c7b09f5644c))
+
 ## [1.2.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.1.0...v1.2.0) (2024-09-03)
 
 
