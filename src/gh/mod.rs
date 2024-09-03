@@ -108,7 +108,7 @@ async fn global_deps(
                 graph.push(single)
             }
         } else {
-            println!("Could not find sbom of repo {}, you may need to activate dependency graph in this repo", repo)
+            eprintln!("Could not find sbom of repo {}, you may need to activate dependency graph in this repo", repo)
         }
     }
     let source: remote::Source = remote::Source(graph);
