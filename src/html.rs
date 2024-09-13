@@ -31,8 +31,16 @@ pub fn render_lic_html(raw: Vec<GitHubDep>) -> String {
 }
 
 pub fn render_dep_html(raw: Vec<GitHubDep>) -> String {
+    let filtered: Vec<GitHubDep> = raw
+        .into_iter()
+        .filter(|d| {
+            // if they are the same it means it is the repo it self
+            d.name != d.tipe
+        })
+        .collect();
+
     let hello = DependencyTemplate {
-        items: raw,
+        items: filtered,
         title: "Dependencies".to_string(),
     };
     hello.render().unwrap()
