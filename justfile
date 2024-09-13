@@ -23,6 +23,10 @@ install:
 create_docs: install
     just run markdown > ./docs/src/chapter_1.md
 
+m: install
+    dy global_deps --ashtml > depindex.html
+    dy global_deps --ashtml --html_type licenses > liindex.html
+
 dist:
     cargo dist init
     cargo dist generate

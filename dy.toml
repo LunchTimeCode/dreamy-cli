@@ -1,5 +1,5 @@
 report_title = "No unknown"
 forbid_unknown = true
-forbidden_licenses = []
+forbidden_licenses = ["not found"]
 org = "LunchTimeCode"
 repo = "dreamy-cli"

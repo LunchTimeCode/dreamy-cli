@@ -126,7 +126,7 @@ pub async fn get_deps_global(
     let config = config::Config::from_file();
     let forbidden_licenses = config.forbidden_licenses();
 
-    let (filtered, forbidden_licenses): (Vec<GitHubDep>, Vec<GitHubDep>) = source
+    let (forbidden_licenses, filtered): (Vec<GitHubDep>, Vec<GitHubDep>) = source
         .0
         .into_iter()
         .filter(|d| {
@@ -135,10 +135,18 @@ pub async fn get_deps_global(
         })
         .partition(|d| forbidden_licenses.contains(&d.license));
 
+    let licenses = filtered
+        .iter()
+        .cloned()
+        .map(|d| d.license)
+        .collect::<std::collections::HashSet<String>>()
+        .into_iter()
+        .collect::<Vec<String>>();
+
     let res = if html {
         let pretty = serde_json::to_string_pretty(&forbidden_licenses)?;
         eprintln!("{}", &pretty);
-        html::render_html(filtered, html_type)
+        html::render_html(filtered, licenses, html_type)
     } else {
         let both = vec![filtered, forbidden_licenses];
         serde_json::to_string_pretty(&both)?

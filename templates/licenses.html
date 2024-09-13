@@ -25,10 +25,20 @@
             text-align: center;
         }
 
+        .table-container {
+            overflow-x: auto; /* Enables horizontal scrolling */
+            overflow-y: auto; /* Enables vertical scrolling */
+            max-height: 700px; /* Sets a maximum height for the container */
+            margin-top: 20px;
+        }
+
+        .all-licenses-table{
+            margin-top: 20px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
         }
 
         th, td {
@@ -39,6 +49,9 @@
 
         th {
             background-color: var(--th-bg-color);
+            position: sticky;
+            top: 0; /* Stick the header to the top */
+            z-index: 1; /* Ensure the header is above the table rows */
         }
 
         tr:hover {
@@ -55,26 +68,31 @@
         .badge.actions {
             background-color: #007bff;
         }
-        
+
         .badge.rust {
             background-color: #ffc832;
         }
-        
+
         .badge.gradle {
             background-color: #7F52FF;
         }
-        
+
         .badge.maven {
             background-color: #7F52FF;
-        }  
+        }
 
         .badge.license {
             background-color: #dc3545;
         }
 
+        .badge.unique-license {
+            background-color: #0c0c0c;
+        }
+
         /* Light theme */
         body.light-mode {
             --bg-color: #f4f4f4;
+            --reverse-bg: #121212;
             --text-color: #333333;
             --container-bg-color: #ffffff;
             --th-bg-color: #f8f8f8;
@@ -86,6 +104,7 @@
         /* Dark theme */
         body.dark-mode {
             --bg-color: #121212;
+            --reverse-bg: #f4f4f4;
             --text-color: #e0e0e0;
             --container-bg-color: #1e1e1e;
             --th-bg-color: #333333;
@@ -109,56 +128,150 @@
         .theme-switch input {
             margin-left: 10px;
         }
+
+        .pdf-link {
+            color: var(--text-color);
+            padding: 2px 6px 2px 6px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            border-left: 1px solid #CCCCCC;
+        }
+
+        .pdf-print {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        @media print {
+            @page {
+                margin-left: 0.8in;
+                margin-right: 0.8in;
+                margin-top: 0.2in;
+                margin-bottom: 0.2in;
+                overflow: hidden;
+            }
+
+            .table-container {
+                overflow-x: hidden;
+                overflow-y: hidden;
+                max-height: 100%;
+            }
+            .all-licenses {
+                display: none;
+            }
+
+            .pdf-print {
+                display: none;
+            }
+
+            .theme-switch {
+                display: none;
+            }
+
+            th, td {
+                padding: 9px 12px;
+                text-align: left;
+                border-bottom: 1px solid;
+            }
+
+        }
+
     </style>
 </head>
 <body>
-    <div class="theme-switch">
-        <label for="theme-toggle">Dark Mode</label>
-        <input type="checkbox" id="theme-toggle">
-    </div>
-    <div class="container">
-        <h1>{{ title }}</h1>
-        <table>
+<div class="theme-switch">
+    <label for="theme-toggle">Dark Mode</label>
+    <input type="checkbox" id="theme-toggle">
+</div>
+<div class="pdf-print">
+    <a href="#" class="pdf-link" id="print">Print as PDF</a>
+</div>
+<div class="container" id="container">
+    <h1>{{ title }}</h1>
+
+    <details id="all-licenses">
+        <summary>All Licenses</summary>
+        <table class="all-licenses-table">
             <thead>
-                <tr>
-                    <th>Dependency Name</th>
-                    <th>Version</th>
-                    <th>License</th>
-                </tr>
+            <tr>
+                <th>License</th>
+            </tr>
             </thead>
             <tbody>
-                {% for item in items %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.version }}</td>
-                    <td><span class="badge license">{{ item.license }}</span></td>
-                </tr>
-                {% endfor %}
+            {% for license in licenses %}
+            <tr>
+                <td><span class="badge unique-license">{{ license }}</span></td>
+            </tr>
+            {% endfor %}
             </tbody>
         </table>
-    </div>
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
+    </details>
 
-        if (currentTheme === 'dark') {
+    <div class="table-container" id="table-container">
+
+        <table>
+            <thead>
+            <tr>
+                <th>Dependency Name</th>
+                <th>Version</th>
+                <th>License</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.version }}</td>
+                <td><span class="badge license">{{ item.license }}</span></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div >
+</div>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.checked = true;
+    } else {
+        document.body.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            document.body.classList.remove('light-mode');
             document.body.classList.add('dark-mode');
-            themeToggle.checked = true;
+            localStorage.setItem('theme', 'dark');
         } else {
+            document.body.classList.remove('dark-mode');
             document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light');
         }
+    });
 
-        themeToggle.addEventListener('change', function() {
-            if (this.checked) {
-                document.body.classList.remove('light-mode');
-                document.body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.classList.remove('dark-mode');
-                document.body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let printLink = document.getElementById("print");
+        let container = document.getElementById("container");
+
+        printLink.addEventListener("click", event => {
+            event.preventDefault();
+            window.print();
+        }, false);
+
+        container.addEventListener("click", event => {
+            printLink.style.display = "flex";
+        }, false);
+
+    }, false);
+
+</script>
 </body>
 </html>
