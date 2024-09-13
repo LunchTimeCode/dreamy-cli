@@ -124,23 +124,23 @@ pub async fn get_deps_global(
 ) -> anyhow::Result<String> {
     let source = global_deps(token, org, repos_path).await?;
     let config = config::Config::from_file();
-    let non_accepted_licenses = config.forbidden_licenses();
+    let forbidden_licenses = config.forbidden_licenses();
 
-    let (filtered, non_accepted_licenses): (Vec<GitHubDep>, Vec<GitHubDep>) = source
+    let (filtered, forbidden_licenses): (Vec<GitHubDep>, Vec<GitHubDep>) = source
         .0
         .into_iter()
         .filter(|d| {
             // if they are the same it means it is the repo itself
             d.name != d.tipe
         })
-        .partition(|d| non_accepted_licenses.contains(&d.license));
+        .partition(|d| forbidden_licenses.contains(&d.license));
 
     let res = if html {
-        let pretty = serde_json::to_string_pretty(&non_accepted_licenses)?;
+        let pretty = serde_json::to_string_pretty(&forbidden_licenses)?;
         eprintln!("{}", &pretty);
         html::render_html(filtered, html_type)
     } else {
-        let both = vec![filtered, non_accepted_licenses];
+        let both = vec![filtered, forbidden_licenses];
         serde_json::to_string_pretty(&both)?
     };
 
