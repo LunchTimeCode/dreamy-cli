@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.3.0...v1.3.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* adjust dep table ([34d5637](https://github.com/LunchTimeCode/dreamy-cli/commit/34d5637c3365d7368ebefaf39928d8ec0e23e3b6))
+
 ## [1.3.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.2.1...v1.3.0) (2024-09-13)
 
 
