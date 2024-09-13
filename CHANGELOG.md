@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.2.1...v1.3.0) (2024-09-13)
+
+
+### Features
+
+* consider forbidden licenses for global command ([5ea9225](https://github.com/LunchTimeCode/dreamy-cli/commit/5ea92254bd5228b3e3a5525939d49669882edd4e))
+* new html view ([e4d6b63](https://github.com/LunchTimeCode/dreamy-cli/commit/e4d6b6369085d52a94052336fe454354af36e538))
+
+
+### Bug Fixes
+
+* remove deps that are the repos themselfs ([578b309](https://github.com/LunchTimeCode/dreamy-cli/commit/578b3099994ce8eed06e137cbba72d3882e6b64c))
+
 ## [1.2.1](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.2.0...v1.2.1) (2024-09-03)
 
 
