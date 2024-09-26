@@ -1,4 +1,5 @@
 use crate::config::GH_COMMAND;
+use crate::server;
 
 use super::gh;
 use super::init;
@@ -14,15 +15,23 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             repos_path,
             ashtml,
             html_type,
+            command,
         }) => {
-            gh::get_deps_global(
-                &token,
-                org,
-                repos_path,
-                ashtml,
-                html_type.unwrap_or(HtmlType::Dependencies),
-            )
-            .await
+            match command {
+                Some(GlobalSubCommands::Server { port
+                }) => {
+                    server::start_server(port).await
+                },
+                None =>  gh::get_deps_global(
+                               &token,
+                               org,
+                               repos_path,
+                               ashtml,
+                               html_type.unwrap_or(HtmlType::Dependencies),
+                           )
+                           .await,
+            }
+           
         }
         Some(Commands::GhCommand {}) => Ok(GH_COMMAND.to_string()),
         Some(Commands::InitGlobal {}) => init::global_example(),
@@ -109,6 +118,18 @@ enum Commands {
         /// [PREVIEW] render licenses or dependencies [default: dependencies]
         #[arg(short = 'H', long)]
         html_type: Option<HtmlType>,
+
+        #[command(subcommand)]
+        command: Option<GlobalSubCommands>,
+    },
+}
+
+#[derive(Subcommand, Debug)]
+#[command(rename_all = "snake_case")]
+enum GlobalSubCommands {
+    Server {
+        #[arg(short, long, env = "DY_PORT", default_value_t = String::from("3000"))]
+        port: String,
     },
 }
 
