@@ -3,6 +3,7 @@ mod config;
 mod gh;
 mod html;
 mod init;
+mod server;
 
 use colored::Colorize;
 

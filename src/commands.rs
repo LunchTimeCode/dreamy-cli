@@ -1,4 +1,5 @@
 use crate::config::GH_COMMAND;
+use crate::server;
 
 use super::gh;
 use super::init;
@@ -14,16 +15,31 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             repos_path,
             ashtml,
             html_type,
-        }) => {
-            gh::get_deps_global(
-                &token,
-                org,
-                repos_path,
-                ashtml,
-                html_type.unwrap_or(HtmlType::Dependencies),
-            )
-            .await
-        }
+            command,
+        }) => match command {
+            Some(GlobalSubCommands::Server { port, schedule }) => {
+                server::start_server(
+                    port,
+                    &token,
+                    org,
+                    repos_path,
+                    ashtml,
+                    html_type.unwrap_or(HtmlType::Dependencies),
+                    schedule,
+                )
+                .await
+            }
+            None => {
+                gh::get_deps_global(
+                    &token,
+                    org,
+                    repos_path,
+                    ashtml,
+                    html_type.unwrap_or(HtmlType::Dependencies),
+                )
+                .await
+            }
+        },
         Some(Commands::GhCommand {}) => Ok(GH_COMMAND.to_string()),
         Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
@@ -109,10 +125,26 @@ enum Commands {
         /// [PREVIEW] render licenses or dependencies [default: dependencies]
         #[arg(short = 'H', long)]
         html_type: Option<HtmlType>,
+
+        #[command(subcommand)]
+        command: Option<GlobalSubCommands>,
     },
 }
 
-#[derive(clap::ValueEnum, Clone, Debug)]
+#[derive(Subcommand, Debug)]
+#[command(rename_all = "snake_case")]
+enum GlobalSubCommands {
+    Server {
+        #[arg(short, long, env = "DY_PORT", default_value_t = String::from("3000"))]
+        port: String,
+
+        ///Poll github every, seconds: []s, minutes: []m, hours: []h, days: []D, weeks: []W, months: []M. Examples: "30s", "2W", "2h"
+        #[arg(short, long, env = "DY_SCHEDULE", default_value_t = String::from("1m"))]
+        schedule: String,
+    },
+}
+
+#[derive(clap::ValueEnum, Clone, Debug, Copy)]
 pub enum HtmlType {
     Licenses,
     Dependencies,
