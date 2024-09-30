@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.4.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.3.1...v1.4.0) (2024-09-30)
+
+
+### Features
+
+* server mode ([35d060c](https://github.com/LunchTimeCode/dreamy-cli/commit/35d060c3637642266b03bba949152a76585d8ee3))
+* server mode ([#50](https://github.com/LunchTimeCode/dreamy-cli/issues/50)) ([7b16f19](https://github.com/LunchTimeCode/dreamy-cli/commit/7b16f1925239240ef64b3488d027568c49ad89e6))
+
+
+### Bug Fixes
+
+* just get once the deps ([717d9d1](https://github.com/LunchTimeCode/dreamy-cli/commit/717d9d16c15aaabbb86aa770c6c47b9a1c9642e9))
+* poll at the beginning too ([e3ae011](https://github.com/LunchTimeCode/dreamy-cli/commit/e3ae011486e6aa5f4e4f45da5e0bf79f18923d05))
+
 ## [1.3.1](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.3.0...v1.3.1) (2024-09-13)
 
 
