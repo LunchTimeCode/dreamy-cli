@@ -17,7 +17,10 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             html_type,
             command,
         }) => match command {
-            Some(GlobalSubCommands::Server { port }) => {
+            Some(GlobalSubCommands::Server {
+                port,
+                schedule,
+            }) => {
                 server::start_server(
                     port,
                     &token,
@@ -25,6 +28,7 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
                     repos_path,
                     ashtml,
                     html_type.unwrap_or(HtmlType::Dependencies),
+                    schedule,
                 )
                 .await
             }
@@ -136,6 +140,10 @@ enum GlobalSubCommands {
     Server {
         #[arg(short, long, env = "DY_PORT", default_value_t = String::from("3000"))]
         port: String,
+
+        ///Poll github every, seconds: []s, minutes: []m, hours: []h, days: []D, weeks: []W, months: []M. Examples: "30s", "2W", "2h"
+        #[arg(short, long, env = "DY_SCHEDULE", default_value_t = String::from("1m"))]
+        schedule: String,
     },
 }
 
