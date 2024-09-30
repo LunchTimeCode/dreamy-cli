@@ -132,6 +132,9 @@ dreamy cli
 * `-p`, `--port <PORT>`
 
   Default value: `3000`
+* `-s`, `--schedule <SCHEDULE>` — Poll github every, seconds: []s, minutes: []m, hours: []h, days: []D, weeks: []W, months: []M. Examples: "30s", "2W", "2h"
+
+  Default value: `1m`
 
 
 
