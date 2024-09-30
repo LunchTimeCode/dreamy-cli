@@ -17,10 +17,7 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             html_type,
             command,
         }) => match command {
-            Some(GlobalSubCommands::Server {
-                port,
-                schedule,
-            }) => {
+            Some(GlobalSubCommands::Server { port, schedule }) => {
                 server::start_server(
                     port,
                     &token,
