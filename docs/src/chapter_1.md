@@ -12,6 +12,7 @@ This document contains the help content for the `dy` command-line program.
 * [`dy deps`↴](#dy-deps)
 * [`dy gh_command`↴](#dy-gh_command)
 * [`dy global_deps`↴](#dy-global_deps)
+* [`dy global_deps server`↴](#dy-global_deps-server)
 
 ## `dy`
 
@@ -101,7 +102,11 @@ dreamy cli
 
 [STABLE] get all deps of an github organisation
 
-**Usage:** `dy global_deps [OPTIONS] --token <TOKEN>`
+**Usage:** `dy global_deps [OPTIONS] --token <TOKEN> [COMMAND]`
+
+###### **Subcommands:**
+
+* `server` — 
 
 ###### **Options:**
 
@@ -115,6 +120,18 @@ dreamy cli
 
   Possible values: `licenses`, `dependencies`
 
+
+
+
+## `dy global_deps server`
+
+**Usage:** `dy global_deps server [OPTIONS]`
+
+###### **Options:**
+
+* `-p`, `--port <PORT>`
+
+  Default value: `3000`
 
 
 

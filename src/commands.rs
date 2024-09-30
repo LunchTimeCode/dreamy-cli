@@ -16,23 +16,29 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             ashtml,
             html_type,
             command,
-        }) => {
-            match command {
-                Some(GlobalSubCommands::Server { port
-                }) => {
-                    server::start_server(port).await
-                },
-                None =>  gh::get_deps_global(
-                               &token,
-                               org,
-                               repos_path,
-                               ashtml,
-                               html_type.unwrap_or(HtmlType::Dependencies),
-                           )
-                           .await,
+        }) => match command {
+            Some(GlobalSubCommands::Server { port }) => {
+                server::start_server(
+                    port,
+                    &token,
+                    org,
+                    repos_path,
+                    ashtml,
+                    html_type.unwrap_or(HtmlType::Dependencies),
+                )
+                .await
             }
-           
-        }
+            None => {
+                gh::get_deps_global(
+                    &token,
+                    org,
+                    repos_path,
+                    ashtml,
+                    html_type.unwrap_or(HtmlType::Dependencies),
+                )
+                .await
+            }
+        },
         Some(Commands::GhCommand {}) => Ok(GH_COMMAND.to_string()),
         Some(Commands::InitGlobal {}) => init::global_example(),
         Some(Commands::Init {}) => init::example(),
@@ -133,7 +139,7 @@ enum GlobalSubCommands {
     },
 }
 
-#[derive(clap::ValueEnum, Clone, Debug)]
+#[derive(clap::ValueEnum, Clone, Debug, Copy)]
 pub enum HtmlType {
     Licenses,
     Dependencies,
