@@ -88,29 +88,38 @@ async fn create_server(
     match poll_schedule {
         PollSchedule::Seconds(s) => {
             let schedule = every(s).seconds().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
         PollSchedule::Minutes(m) => {
             let schedule = every(m).minutes().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
         PollSchedule::Hours(h) => {
             let schedule = every(h).hours().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
         PollSchedule::Days(d) => {
             let schedule = every(d).days().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
         PollSchedule::Weeks(w) => {
             let schedule = every(w).weeks().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
         PollSchedule::Months(m) => {
             let schedule = every(m).weeks().in_timezone(&chrono::Utc);
-            spawn(schedule.perform(j));
+            spawn(schedule.perform(j.clone()));
         }
     }
+
+    let now = chrono::Utc::now();
+    spawn(
+        every(1)
+            .second()
+            .in_timezone(&chrono::Utc)
+            .until(&now)
+            .perform(j),
+    );
 
     let binding = format!("0.0.0.0:{}", port);
     println!("listeng at: {}", binding.green());
