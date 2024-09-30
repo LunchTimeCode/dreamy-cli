@@ -112,9 +112,7 @@ async fn create_server(
         }
     }
 
-    tokio::spawn(async move {
-            j().await
-    });
+    tokio::spawn(async move { j().await });
 
     let binding = format!("0.0.0.0:{}", port);
     println!("listeng at: {}", binding.green());
