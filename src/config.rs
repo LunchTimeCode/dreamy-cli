@@ -7,39 +7,20 @@ use serde_derive::Serialize;
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Config {
-    pub report_title: Option<String>,
     pub allowed_licenses: Option<Vec<String>>,
     pub forbid_unknown: Option<bool>,
     forbidden_licenses: Option<Vec<String>>,
     pub org: String,
-    pub repo: Option<String>,
 }
 
 impl Config {
-    pub fn example() -> Self {
-        Self {
-            report_title: Some("very good title".to_string()),
-            allowed_licenses: None,
-            forbidden_licenses: Some(vec![]),
-            forbid_unknown: Some(false),
-            org: "acme".to_string(),
-            repo: Some("some_repo".to_string()),
-        }
-    }
-
     pub fn global_example() -> Self {
         Self {
             org: "acme".to_string(),
-            report_title: None,
             allowed_licenses: None,
             forbidden_licenses: None,
             forbid_unknown: None,
-            repo: None,
         }
-    }
-
-    pub fn forbidden_unknown(&self) -> bool {
-        self.forbid_unknown.unwrap_or(false)
     }
 
     pub fn forbidden_licenses(&self) -> Vec<String> {
@@ -57,10 +38,6 @@ impl Config {
             return true;
         }
         allowed.contains(&license)
-    }
-
-    pub fn is_forbidden_license(&self, license: String) -> bool {
-        self.forbidden_licenses().contains(&license)
     }
 
     pub fn from_file() -> Self {
