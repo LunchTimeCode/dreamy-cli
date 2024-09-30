@@ -112,14 +112,9 @@ async fn create_server(
         }
     }
 
-    let now = chrono::Utc::now();
-    spawn(
-        every(1)
-            .second()
-            .in_timezone(&chrono::Utc)
-            .until(&now)
-            .perform(j),
-    );
+    tokio::spawn(async move {
+            j().await
+    });
 
     let binding = format!("0.0.0.0:{}", port);
     println!("listeng at: {}", binding.green());
