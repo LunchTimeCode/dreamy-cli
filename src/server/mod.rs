@@ -2,7 +2,7 @@ use appstate::AppState;
 
 use axum::{
     extract::{self, State},
-    http::StatusCode,
+    http::{HeaderMap, StatusCode},
     response::{IntoResponse, Response},
     routing::{get, post},
     Router,
@@ -10,18 +10,19 @@ use axum::{
 use colored::Colorize;
 use poll_schedule::PollSchedule;
 use serde_derive::Deserialize;
-use std::{borrow::BorrowMut, ops::DerefMut, sync::Arc};
+use std::sync::Arc;
 use tokio::net::TcpListener;
 use tokio::spawn;
 use tokio::sync::Mutex;
 use tokio_schedule::{every, Job};
-use axum_extra::TypedHeader;
 
 use crate::commands::HtmlType;
 
 mod appstate;
+mod auth_state;
 mod poll_schedule;
 
+#[allow(clippy::too_many_arguments)]
 pub async fn start_server(
     port: String,
     token: &str,
@@ -30,6 +31,8 @@ pub async fn start_server(
     html: bool,
     html_type: HtmlType,
     poll_schedule: String,
+    header_key: String,
+    auth_env_key: String,
 ) -> anyhow::Result<String> {
     let (listener, app) = create_server(
         port,
@@ -39,12 +42,15 @@ pub async fn start_server(
         html,
         html_type,
         poll_schedule,
+        header_key,
+        auth_env_key,
     )
     .await?;
     axum::serve(listener, app).await.unwrap();
     Ok("Shutdown server with no errors".to_string())
 }
 
+#[allow(clippy::too_many_arguments)]
 async fn create_server(
     port: String,
     token: String,
@@ -53,8 +59,10 @@ async fn create_server(
     html: bool,
     html_type: HtmlType,
     poll_schedule: String,
+    header_key: String,
+    auth_env_key: String,
 ) -> anyhow::Result<(TcpListener, Router)> {
-    let app_state = Arc::new(Mutex::new(AppState::empty()));
+    let app_state = Arc::new(Mutex::new(AppState::from_keys(header_key, auth_env_key)?));
 
     let app_state_clone = Arc::clone(&app_state);
 
@@ -66,7 +74,7 @@ async fn create_server(
         let html_type_clone = html_type;
 
         let app_state_clone = Arc::clone(&app_state_clone);
-        
+
         async move {
             let mut state = app_state_clone.lock().await;
             let result = state
@@ -152,10 +160,15 @@ struct Repos {
 
 async fn set_repos(
     State(app_state): State<Arc<Mutex<AppState>>>,
-    TypedHeader(user_agent): TypedHeader<Bear>,
+    headers: HeaderMap,
     extract::Json(payload): extract::Json<Repos>,
 ) -> Response {
     let mut state = app_state.lock().await;
+
+    if !state.get_auth().is_valid(headers) {
+        return StatusCode::FORBIDDEN.into_response();
+    };
+
     state.replace_repos(payload.repos);
     StatusCode::OK.into_response()
 }

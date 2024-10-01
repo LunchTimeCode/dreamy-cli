@@ -17,7 +17,12 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
             html_type,
             command,
         }) => match command {
-            Some(GlobalSubCommands::Server { port, schedule }) => {
+            Some(GlobalSubCommands::Server {
+                port,
+                schedule,
+                header_auth_key,
+                env_auth_key,
+            }) => {
                 server::start_server(
                     port,
                     &token,
@@ -26,6 +31,8 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
                     ashtml,
                     html_type.unwrap_or(HtmlType::Dependencies),
                     schedule,
+                    header_auth_key,
+                    env_auth_key,
                 )
                 .await
             }
@@ -36,7 +43,7 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
                     repos_path,
                     ashtml,
                     html_type.unwrap_or(HtmlType::Dependencies),
-                    Vec::new()
+                    Vec::new(),
                 )
                 .await
             }
@@ -112,6 +119,14 @@ enum GlobalSubCommands {
         ///Poll github every, seconds: []s, minutes: []m, hours: []h, days: []D, weeks: []W, months: []M. Examples: "30s", "2W", "2h"
         #[arg(short, long, env = "DY_SCHEDULE", default_value_t = String::from("1m"))]
         schedule: String,
+
+        /// will be used to get the header to authenticate calls against
+        #[arg(short, long, env = "DY_AUTH_HEADER_KEY", default_value_t = String::from("authorization"))]
+        header_auth_key: String,
+
+        /// should be set if the env var key needs to be diffrent from API_KEY
+        #[arg(short, long, env = "DY_AUTH_ENV_KEY", default_value_t = String::from("API_KEY"))]
+        env_auth_key: String,
     },
 }
 
