@@ -1,16 +1,14 @@
 use appstate::AppState;
-
 use axum::{
-    extract::{self, State},
+    extract::State,
     http::StatusCode,
     response::{IntoResponse, Response},
-    routing::{get, post},
+    routing::get,
     Router,
 };
 use colored::Colorize;
 use poll_schedule::PollSchedule;
-use serde_derive::Deserialize;
-use std::{borrow::BorrowMut, sync::Arc};
+use std::sync::Arc;
 use tokio::net::TcpListener;
 use tokio::spawn;
 use tokio::sync::Mutex;
@@ -131,7 +129,6 @@ fn make_api() -> Router<Arc<Mutex<AppState>>> {
     Router::new()
         .route("/healthz", get(healthz))
         .route("/", get(view))
-        .route("/repos", post(set_repos))
 }
 
 async fn healthz() -> Response {
@@ -141,18 +138,4 @@ async fn healthz() -> Response {
 async fn view(State(app_state): State<Arc<Mutex<AppState>>>) -> axum::response::Html<String> {
     let state = app_state.lock().await;
     axum::response::Html(state.get_html().to_string())
-}
-
-#[derive(Deserialize, Debug)]
-struct Repos {
-    repos: Vec<String>,
-}
-
-async fn set_repos(
-    State(app_state): State<Arc<Mutex<AppState>>>,
-    extract::Json(payload): extract::Json<Repos>,
-) -> Response {
-    let mut state = app_state.lock().await.borrow_mut();
-    state.replace_repos(payload.repos);
-    StatusCode::OK.into_response()
 }
