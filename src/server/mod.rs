@@ -1,9 +1,10 @@
 use appstate::AppState;
+
 use axum::{
-    extract::State,
+    extract::{self, State},
     http::StatusCode,
     response::{IntoResponse, Response},
-    routing::get,
+    routing::{get, post},
     Router,
 };
 use colored::Colorize;
@@ -17,8 +18,12 @@ use tokio_schedule::{every, Job};
 use crate::commands::HtmlType;
 
 mod appstate;
+mod auth_state;
 mod poll_schedule;
+mod repos_route;
+mod view_route;
 
+#[allow(clippy::too_many_arguments)]
 pub async fn start_server(
     port: String,
     token: &str,
@@ -27,6 +32,8 @@ pub async fn start_server(
     html: bool,
     html_type: HtmlType,
     poll_schedule: String,
+    header_key: String,
+    auth_env_key: String,
 ) -> anyhow::Result<String> {
     let (listener, app) = create_server(
         port,
@@ -36,12 +43,15 @@ pub async fn start_server(
         html,
         html_type,
         poll_schedule,
+        header_key,
+        auth_env_key,
     )
     .await?;
     axum::serve(listener, app).await.unwrap();
     Ok("Shutdown server with no errors".to_string())
 }
 
+#[allow(clippy::too_many_arguments)]
 async fn create_server(
     port: String,
     token: String,
@@ -50,8 +60,10 @@ async fn create_server(
     html: bool,
     html_type: HtmlType,
     poll_schedule: String,
+    header_key: String,
+    auth_env_key: String,
 ) -> anyhow::Result<(TcpListener, Router)> {
-    let app_state = Arc::new(Mutex::new(AppState::empty()));
+    let app_state = Arc::new(Mutex::new(AppState::from_keys(header_key, auth_env_key)?));
 
     let app_state_clone = Arc::clone(&app_state);
 
@@ -63,6 +75,7 @@ async fn create_server(
         let html_type_clone = html_type;
 
         let app_state_clone = Arc::clone(&app_state_clone);
+
         async move {
             let mut state = app_state_clone.lock().await;
             let result = state
@@ -128,14 +141,10 @@ async fn create_server(
 fn make_api() -> Router<Arc<Mutex<AppState>>> {
     Router::new()
         .route("/healthz", get(healthz))
-        .route("/", get(view))
+        .route("/", get(view_route::view))
+        .route("/repos", post(repos_route::set_repos))
 }
 
 async fn healthz() -> Response {
     StatusCode::OK.into_response()
-}
-
-async fn view(State(app_state): State<Arc<Mutex<AppState>>>) -> axum::response::Html<String> {
-    let state = app_state.lock().await;
-    axum::response::Html(state.get_html().to_string())
 }
