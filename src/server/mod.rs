@@ -10,12 +10,11 @@ use axum::{
 use colored::Colorize;
 use poll_schedule::PollSchedule;
 use serde_derive::Deserialize;
-use std::{borrow::BorrowMut, ops::DerefMut, sync::Arc};
+use std::{borrow::BorrowMut, sync::Arc};
 use tokio::net::TcpListener;
 use tokio::spawn;
 use tokio::sync::Mutex;
 use tokio_schedule::{every, Job};
-use axum_extra::TypedHeader;
 
 use crate::commands::HtmlType;
 
@@ -66,7 +65,6 @@ async fn create_server(
         let html_type_clone = html_type;
 
         let app_state_clone = Arc::clone(&app_state_clone);
-        
         async move {
             let mut state = app_state_clone.lock().await;
             let result = state
@@ -152,10 +150,9 @@ struct Repos {
 
 async fn set_repos(
     State(app_state): State<Arc<Mutex<AppState>>>,
-    TypedHeader(user_agent): TypedHeader<Bear>,
     extract::Json(payload): extract::Json<Repos>,
 ) -> Response {
-    let mut state = app_state.lock().await;
+    let mut state = app_state.lock().await.borrow_mut();
     state.replace_repos(payload.repos);
     StatusCode::OK.into_response()
 }

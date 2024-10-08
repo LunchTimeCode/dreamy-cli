@@ -11,7 +11,6 @@ async fn global_deps(
     token: &str,
     org: Option<String>,
     repos_path: Option<String>,
-    repos: Vec<String>
 ) -> anyhow::Result<remote::Source> {
     let config = config::Config::try_from_file();
 
@@ -25,7 +24,7 @@ async fn global_deps(
         },
     };
 
-    let repos = config::repos_from_file(repos_path).unwrap_or(repos);
+    let repos = config::repos_from_file(repos_path)?;
 
     let mut graph: Vec<GitHubDep> = vec![];
     for repo in repos {
@@ -47,9 +46,8 @@ pub async fn get_deps_global(
     repos_path: Option<String>,
     html: bool,
     html_type: HtmlType,
-    repos: Vec<String>
 ) -> anyhow::Result<String> {
-    let source = global_deps(token, org, repos_path, repos).await?;
+    let source = global_deps(token, org, repos_path).await?;
     let config = config::Config::from_file();
     let forbidden_licenses = config.forbidden_licenses();
 

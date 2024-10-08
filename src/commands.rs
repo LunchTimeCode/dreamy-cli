@@ -36,7 +36,6 @@ pub async fn figure() -> anyhow::Result<(String, bool)> {
                     repos_path,
                     ashtml,
                     html_type.unwrap_or(HtmlType::Dependencies),
-                    Vec::new()
                 )
                 .await
             }
