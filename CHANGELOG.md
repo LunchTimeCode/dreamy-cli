@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.4.0...v2.0.0) (2024-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove single repo commands
+
+### Features
+
+* remove single repo commands ([c64eda5](https://github.com/LunchTimeCode/dreamy-cli/commit/c64eda58ff5e297b7646cc7ef434df1d88b1f3ae))
+
+
+### Bug Fixes
+
+* new docs ([a70ddab](https://github.com/LunchTimeCode/dreamy-cli/commit/a70ddab5887089baa54b4b804f83e9dc69cfd8b0))
+
 ## [1.4.0](https://github.com/LunchTimeCode/dreamy-cli/compare/v1.3.1...v1.4.0) (2024-09-30)
 
 
