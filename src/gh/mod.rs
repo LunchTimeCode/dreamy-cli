@@ -11,7 +11,7 @@ async fn global_deps(
     token: &str,
     org: Option<String>,
     repos_path: Option<String>,
-    repos: Vec<String>,
+    repos: Vec<String>
 ) -> anyhow::Result<remote::Source> {
     let config = config::Config::try_from_file();
 
@@ -47,7 +47,7 @@ pub async fn get_deps_global(
     repos_path: Option<String>,
     html: bool,
     html_type: HtmlType,
-    repos: Vec<String>,
+    repos: Vec<String>
 ) -> anyhow::Result<String> {
     let source = global_deps(token, org, repos_path, repos).await?;
     let config = config::Config::from_file();
