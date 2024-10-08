@@ -2,13 +2,14 @@ use appstate::AppState;
 
 use axum::{
     extract::{self, State},
-    http::StatusCode,
+    http::{HeaderMap, StatusCode},
     response::{IntoResponse, Response},
     routing::{get, post},
     Router,
 };
 use colored::Colorize;
 use poll_schedule::PollSchedule;
+use serde_derive::Deserialize;
 use std::sync::Arc;
 use tokio::net::TcpListener;
 use tokio::spawn;
@@ -20,8 +21,6 @@ use crate::commands::HtmlType;
 mod appstate;
 mod auth_state;
 mod poll_schedule;
-mod repos_route;
-mod view_route;
 
 #[allow(clippy::too_many_arguments)]
 pub async fn start_server(
@@ -141,10 +140,35 @@ async fn create_server(
 fn make_api() -> Router<Arc<Mutex<AppState>>> {
     Router::new()
         .route("/healthz", get(healthz))
-        .route("/", get(view_route::view))
-        .route("/repos", post(repos_route::set_repos))
+        .route("/", get(view))
+        .route("/repos", post(set_repos))
 }
 
 async fn healthz() -> Response {
+    StatusCode::OK.into_response()
+}
+
+async fn view(State(app_state): State<Arc<Mutex<AppState>>>) -> axum::response::Html<String> {
+    let state = app_state.lock().await;
+    axum::response::Html(state.get_html().to_string())
+}
+
+#[derive(Deserialize, Debug)]
+struct Repos {
+    repos: Vec<String>,
+}
+
+async fn set_repos(
+    State(app_state): State<Arc<Mutex<AppState>>>,
+    headers: HeaderMap,
+    extract::Json(payload): extract::Json<Repos>,
+) -> Response {
+    let mut state = app_state.lock().await;
+
+    if !state.get_auth().is_valid(headers) {
+        return StatusCode::FORBIDDEN.into_response();
+    };
+
+    state.replace_repos(payload.repos);
     StatusCode::OK.into_response()
 }
