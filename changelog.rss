@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>dreamy-cli Changelog</title><link>http://127.0.0.1:7979/dreamy-cli/changelog</link><description>Changelog information for dreamy-cli</description><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><atom:link href="http://127.0.0.1:7979/dreamy-cli/changelog.rss" rel="self"/><item><title>v2.0.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v2.0.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v2.0.0</guid><content:encoded><![CDATA[<h3>⚠ BREAKING CHANGES</h3>
+<ul>
+<li>remove single repo commands</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>remove single repo commands (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/c64eda58ff5e297b7646cc7ef434df1d88b1f3ae" rel="noopener noreferrer">c64eda5</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>new docs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/a70ddab5887089baa54b4b804f83e9dc69cfd8b0" rel="noopener noreferrer">a70ddab</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.4.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.4.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.4.0</guid><content:encoded><![CDATA[<h3>Features</h3>
+<ul>
+<li>server mode (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/35d060c3637642266b03bba949152a76585d8ee3" rel="noopener noreferrer">35d060c</a>)</li>
+<li>server mode (<a href="https://github.com/LunchTimeCode/dreamy-cli/issues/50" rel="noopener noreferrer">#50</a>) (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/7b16f1925239240ef64b3488d027568c49ad89e6" rel="noopener noreferrer">7b16f19</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>just get once the deps (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/717d9d16c15aaabbb86aa770c6c47b9a1c9642e9" rel="noopener noreferrer">717d9d1</a>)</li>
+<li>poll at the beginning too (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/e3ae011486e6aa5f4e4f45da5e0bf79f18923d05" rel="noopener noreferrer">e3ae011</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.3.1</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.3.1</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.3.1</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>adjust dep table (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/34d5637c3365d7368ebefaf39928d8ec0e23e3b6" rel="noopener noreferrer">34d5637</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.3.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.3.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.3.0</guid><content:encoded><![CDATA[<h3>Features</h3>
+<ul>
+<li>consider forbidden licenses for global command (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/5ea92254bd5228b3e3a5525939d49669882edd4e" rel="noopener noreferrer">5ea9225</a>)</li>
+<li>new html view (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/e4d6b6369085d52a94052336fe454354af36e538" rel="noopener noreferrer">e4d6b63</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>remove deps that are the repos themselfs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/578b3099994ce8eed06e137cbba72d3882e6b64c" rel="noopener noreferrer">578b309</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.2.1</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.2.1</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.2.1</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>output (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/401860c793c22e4ad16c1ec704487c7b09f5644c" rel="noopener noreferrer">401860c</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.2.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.2.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.2.0</guid><content:encoded><![CDATA[<h3>Features</h3>
+<ul>
+<li>get global deps (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/b598ec67267be86dcc92e0e82633c479255c8a65" rel="noopener noreferrer">b598ec6</a>)</li>
+<li>global raw argument (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/643a8b802e3715af741426ef07d86d8ba88fe636" rel="noopener noreferrer">643a8b8</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>vendor openssl (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/f3c3879a6457d4a7f15af3731a15e28f429954b2" rel="noopener noreferrer">f3c3879</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.1.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.1.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.1.0</guid><content:encoded><![CDATA[<h3>Features</h3>
+<ul>
+<li>global org deps (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/818b33f93e1847f6066b1867b827b6da84804294" rel="noopener noreferrer">818b33f</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>do not require dy.toml (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/7e591ea340082182611a238cd96f069f5faf4b8d" rel="noopener noreferrer">7e591ea</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.18</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.18</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.18</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>create new doc page if docs change (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/6d1fbc306f0a67f8fd818381ab35941671014b99" rel="noopener noreferrer">6d1fbc3</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.17</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.17</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.17</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>publish to npm (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/08fc75a8f709c79d60221b9ebb48cdab598bb937" rel="noopener noreferrer">08fc75a</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.16</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.16</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.16</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>md book and favicon (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/7d6f4e8bf063b2e59253a2aef9bd5d11bf8c08df" rel="noopener noreferrer">7d6f4e8</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.15</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.15</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.15</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>remove home brew (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/b93bb35aaa1b2ad3f86cd4de316e62cb571dd66c" rel="noopener noreferrer">b93bb35</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.14</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.14</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.14</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>dist (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/500c2017f698300b239f236797fa766e0cea4284" rel="noopener noreferrer">500c201</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.13</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.13</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.13</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>do not try to create a release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/7ed0a73ca59779f27a4fcda257283e917f47fd1c" rel="noopener noreferrer">7ed0a73</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.12</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.12</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.12</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>prerelease.yaml (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/4fb37eae54e3660af96a12ae8b6c7be2ea16d968" rel="noopener noreferrer">4fb37ea</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.11</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.11</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.11</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>create docs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/c33120bcd4b6c17f928f395271022fe67526f774" rel="noopener noreferrer">c33120b</a>)</li>
+<li>dist (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/ad618fb3414bccf55f9a60a651d8391c8928bfcb" rel="noopener noreferrer">ad618fb</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.10</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.10</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.10</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>no homebrew (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/af3a3351b01dd361853bd5bc37df2d0f884c30e7" rel="noopener noreferrer">af3a335</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.9</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.9</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.9</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>cli help (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/577cbe2234a262866e2863cc81a50faac351f238" rel="noopener noreferrer">577cbe2</a>)</li>
+<li>no homebrew (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/8c5039c83f55c0a263588988a0bf9f1cccd9efe8" rel="noopener noreferrer">8c5039c</a>)</li>
+<li>older dist (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/ecfbbe3ca742db9bdca6696777e40d2e41b6dc5a" rel="noopener noreferrer">ecfbbe3</a>)</li>
+<li>web (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/64c9418fe71aedec82bec41c3929e1d4b55d5ca8" rel="noopener noreferrer">64c9418</a>)</li>
+<li>web (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/54eb4e4c3a62fec8ec85fcafcc001337363b5a56" rel="noopener noreferrer">54eb4e4</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.8</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.8</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.8</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>set release type to rust (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/e871bc659921e01046172b8be57a2c29724414f4" rel="noopener noreferrer">e871bc6</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.7</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.7</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.7</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>add repo prefix (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/56051ecef41de51f8b6ced81ce5ae9d2d79b24ac" rel="noopener noreferrer">56051ec</a>)</li>
+<li>do not check links (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/f387d5aa385538381251abe1fc208dafd065e030" rel="noopener noreferrer">f387d5a</a>)</li>
+<li>release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/5458cd46ddc83ff6b7412e145c603238714e337e" rel="noopener noreferrer">5458cd4</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.6</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.6</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.6</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>add doc (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/25c26913cfc4633b95e693a8e2b19a98a93d7929" rel="noopener noreferrer">25c2691</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.5</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.5</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.5</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>add doc (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/21ac0896bc52f704ca8fe597f03a06ad5d1cd5de" rel="noopener noreferrer">21ac089</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.4</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.4</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.4</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>add correct release yaml (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/4333f58c15f8446b57746c403dd1b508d30fba90" rel="noopener noreferrer">4333f58</a>)</li>
+<li>add targets (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/a2804e78614c680045ff9f9cbb29bf0d0ac9ba90" rel="noopener noreferrer">a2804e7</a>)</li>
+<li>outputs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/59a28f6ff9b634cfb03954fce0b5e3f95ad0f0fe" rel="noopener noreferrer">59a28f6</a>)</li>
+<li>outputs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/db3949618c26f84f5245285caf0986946e0a6786" rel="noopener noreferrer">db39496</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.3</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.3</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.3</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>adjust release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/3f4f33a16c316f6869d26d81f689fae0fd4d36ac" rel="noopener noreferrer">3f4f33a</a>)</li>
+<li>outputs (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/bb09f07fd342c7ac6d1b706af3363ba04982e198" rel="noopener noreferrer">bb09f07</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.2</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.2</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.2</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>adjust release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/02bb5742b9ba4a98aa050920fc5c3d6277dca730" rel="noopener noreferrer">02bb574</a>)</li>
+<li>adjust release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/8b37d95f11d3c8c0403e199f2a9b8f067711bd34" rel="noopener noreferrer">8b37d95</a>)</li>
+<li>adjust web (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/aa8c4a4ba68bb9004fb45299fb738cd8972efa30" rel="noopener noreferrer">aa8c4a4</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.1</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.1</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.1</guid><content:encoded><![CDATA[<h3>Bug Fixes</h3>
+<ul>
+<li>add on (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/4ec89c8e7fc9f4cd74e783885897a3269b2eff95" rel="noopener noreferrer">4ec89c8</a>)</li>
+<li>adjust release (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/04999ff9b111fdc00138df175b8374c72f787db7" rel="noopener noreferrer">04999ff</a>)</li>
+<li>adjust web (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/10e7f8c2d1a3ee36c4c792160baf556492c7dfb3" rel="noopener noreferrer">10e7f8c</a>)</li>
+</ul>
+]]></content:encoded></item><item><title>v1.0.0</title><link>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.0</link><category domain="https://github.com/LunchTimeCode/dreamy-cli">dreamy-cli Changelog</category><guid>http://127.0.0.1:7979/dreamy-cli/changelog/v1.0.0</guid><content:encoded><![CDATA[<h3>Features</h3>
+<ul>
+<li>actually working features (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/b504bd258a406c4971df1fbf6f267275c4a2e057" rel="noopener noreferrer">b504bd2</a>)</li>
+<li>change bin name (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/b47b9b4a457465f9ea68b8d492e3f3ffc457b535" rel="noopener noreferrer">b47b9b4</a>)</li>
+<li>init command (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/7dc5cb9f8b6b840601256f4e199fe6f67aea6614" rel="noopener noreferrer">7dc5cb9</a>)</li>
+<li>intermediate (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/5252663924c88de8cbdd91cfae784b4927ace35d" rel="noopener noreferrer">5252663</a>)</li>
+<li>release installers (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/b9b87dacf4cc2560be4a582000e016c834e956ac" rel="noopener noreferrer">b9b87da</a>)</li>
+</ul>
+<h3>Bug Fixes</h3>
+<ul>
+<li>adjust workflow trigger (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/21ab887738697604f7a7bdc8cd17a98fb02db8de" rel="noopener noreferrer">21ab887</a>)</li>
+<li>adjust workflow trigger (<a href="https://github.com/LunchTimeCode/dreamy-cli/commit/4a380038ab3c5170f8c65e600afe27d9ecd51f12" rel="noopener noreferrer">4a38003</a>)</li>
+</ul>
+]]></content:encoded></item></channel></rss>
